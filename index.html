@@ -61,7 +61,7 @@ label{display:block;text-align:left;font-weight:800;margin:12px 0 6px}input{widt
 <p class="fine">Guarda una captura y presenta tu folio junto con el teléfono registrado. El folio de esta demostración no se valida en un servidor.</p>
 <button id="copyBtn" class="primary">Copiar folio</button> <button id="finishBtn" class="secondary">Terminar</button><p id="copyFeedback" class="feedback" role="status" aria-live="polite"></p>
 </section>
-<section class="panel"><h2>🎁 Premios</h2><p>🍷 Botella de vino · 🚤 Paseo en barco · 🍽️ Comida · 🥖 Pan artesanal · 🏷️ Descuento del 15 %.</p><p><strong>Premio de consolación:</strong> llavero de Berry el berrendo 🦌.</p><p class="fine">Los premios principales solo son canjeables en viajes de octubre. Define en las bases las fechas exactas, disponibilidad y condiciones. Para el premio de vino, verifica edad legal y normativa aplicable; no dirijas esa opción a menores.</p></section>
+<section class="panel"><h2>🎁 Premios</h2><p>🍷 Botella de vino · 🚤 Paseo en barco · 🍽️ Comida · 🥖 Pan artesanal · 🏷️ Descuento del 10 %.</p><p><strong>Premio de consolación:</strong> llavero de Berry el berrendo 🦌.</p><p class="fine">Los premios principales solo son canjeables en viajes de octubre. Define en las bases las fechas exactas, disponibilidad y condiciones. Para el premio de vino, verifica edad legal y normativa aplicable; no dirijas esa opción a menores.</p></section>
 <section class="panel"><h2>Control de participaciones</h2><p class="fine">Esta versión bloquea un teléfono repetido en el mismo navegador mediante almacenamiento local. No impide borrar datos, cambiar de dispositivo o modificar el código. El porcentaje del 20 % se calcula en el navegador y no es un sorteo verificable. Para controlar duplicados entre dispositivos y validar folios de forma segura, hace falta un backend y una base de datos compartida.</p></section>
 </main><footer class="foot">Paseando por la Baja · ¡Mucha suerte! 🎈</footer></div>
 <script>
@@ -72,7 +72,7 @@ const mainPrizes=[
 {name:"Paseo en barco",icon:"🚤",msg:"Coordina fecha y cupo con Paseando por la Baja."},
 {name:"Comida",icon:"🍽️",msg:"Consulta lugar y condiciones de canje."},
 {name:"Pan artesanal",icon:"🥖",msg:"Consulta dónde y cuándo recoger tu premio."},
-{name:"Descuento del 15 %",icon:"🏷️",msg:"Consulta los servicios aplicables y las condiciones del descuento."}
+{name:"Descuento del 10 %",icon:"🏷️",msg:"Consulta los servicios aplicables y las condiciones del descuento."}
 ];
 function show(id){["welcome","game","result"].forEach(x=>$(x).classList.toggle("hidden",x!==id));}
 $("phone").addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"").slice(0,10);$("phoneError").textContent="";});
