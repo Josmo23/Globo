@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#292d8d">
+<title>Infla y Gana | Paseando por la Baja</title>
+<style>
+:root{--blue:#292d8d;--yellow:#ffe600;--red:#e53c32;--orange:#f27a21;--cream:#fff8e9;--green:#28633c;--ink:#30271f}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#fff5d8,#ffc77e);min-height:100vh}
+button,input{font:inherit}button{touch-action:manipulation;cursor:pointer}.wrap{width:min(850px,100%);margin:auto;padding:14px}
+header{text-align:center;padding:8px 0 14px}.brand{display:block;width:min(175px,45vw);height:auto;margin:0 auto 8px;border-radius:50%;background:#fff;box-shadow:0 5px 18px #332d8d2b}
+h1{font-size:clamp(1.8rem,6vw,3.1rem);line-height:1.05;color:var(--blue);margin:8px 0}.subtitle{max-width:600px;margin:0 auto}
+.panel{background:#fffdf5;border:3px solid white;border-radius:22px;padding:clamp(15px,4vw,27px);box-shadow:0 9px 0 #292d8d20,0 14px 30px #78421b20;margin:14px 0}
+h2{margin:0 0 12px;color:var(--blue);font-size:clamp(1.3rem,4vw,2rem)}p{line-height:1.5}.center{text-align:center}.hidden{display:none!important}
+button{border:0;border-radius:13px;padding:13px 18px;min-height:48px;font-weight:850}.primary{background:var(--blue);color:#fff;box-shadow:0 4px 0 #171a5c}.secondary{background:#ffe89a;color:#352c1f}.primary:active{transform:translateY(2px);box-shadow:0 2px 0 #171a5c}
+button:focus-visible,input:focus-visible{outline:3px solid #e53c32;outline-offset:3px}
+label{display:block;text-align:left;font-weight:800;margin:12px 0 6px}input{width:100%;padding:13px;border:2px solid #d6c7a8;border-radius:12px;background:#fff;font-size:1.1rem}
+.hint,.fine{font-size:.84rem;color:#6a5847}.feedback{font-weight:800;min-height:24px}.notice{background:#fff0c1;border-left:5px solid var(--orange);border-radius:10px;padding:12px;text-align:left;font-size:.92rem}
+.game-area{position:relative;min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at bottom,#d7efb5 0,#f7f4c9 54%,#fffdf5 75%);border-radius:18px;padding:12px}
+.balloon-wrap{height:220px;width:100%;display:flex;align-items:center;justify-content:center;position:relative}
+.balloon{width:80px;height:100px;border-radius:52% 48% 48% 52%/45% 45% 55% 55%;background:radial-gradient(circle at 28% 22%,#ffb6bc 0,#ff4f67 28%,#d80e3d 72%);position:relative;transform:scale(var(--scale,1));box-shadow:inset -10px -8px 16px #8d082c45,0 8px 15px #8c1d2c20;transition:transform .12s ease-out}
+.balloon:after{content:"";position:absolute;bottom:-10px;left:calc(50% - 7px);width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:13px solid #d80e3d}
+.balloon-string{position:absolute;top:calc(50% + 55px);height:58px;width:2px;background:#8b6c52;transform:rotate(4deg)}
+.balloon-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:26px;color:#72102b;transform:scale(calc(1 / var(--scale,1)))}
+.pop{font-size:clamp(2rem,10vw,4.5rem);font-weight:1000;color:var(--orange);text-shadow:2px 3px #ffe600;animation:pop .45s ease-out}
+@keyframes pop{0%{transform:scale(.2) rotate(-15deg);opacity:0}70%{transform:scale(1.2) rotate(8deg)}100%{transform:scale(1);opacity:1}}
+.meter{height:14px;width:min(420px,100%);background:#eadbc4;border-radius:99px;overflow:hidden;margin:12px auto}.meter-fill{height:100%;width:0;background:linear-gradient(90deg,#69bb69,#ffe600,#f27a21);transition:width .15s}
+.game-btn{font-size:1.12rem;min-width:min(290px,100%);margin:6px}.game-btn:disabled{opacity:.55;cursor:default}
+.steps{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-bottom:14px}.step{border-radius:99px;background:#ffe5a6;padding:6px 10px;font-size:.82rem;font-weight:850}.step.active{background:var(--blue);color:white}
+.prize-icon{font-size:4rem}.prize-name{font-size:clamp(1.4rem,5vw,2rem);font-weight:950;color:var(--green);margin:8px 0}.code{font-family:ui-monospace,Consolas,monospace;background:#fff0c1;border:2px dashed var(--blue);border-radius:12px;padding:12px;font-size:1.1rem;font-weight:900;overflow-wrap:anywhere}
+.brand-small{width:95px;height:auto;border-radius:50%;margin:8px auto}.foot{text-align:center;font-size:.8rem;color:#6a4a35;padding:12px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head>
+<body><div class="wrap">
+<header><img class="brand" src="logo-paseando-por-la-baja.jpg" alt="Logo Paseando por la Baja"><h1>🎈 ¡Infla y Gana! 🎃</h1><p class="subtitle"><strong>Paseando por la Baja</strong> · Infla el globo, descubre tu suerte y gana premios.</p></header>
+<main>
+<section id="welcome" class="panel center">
+<h2>¡Tu aventura comienza aquí!</h2><p>Escribe tu teléfono para registrar tu participación. Después, toca el botón para inflar el globo… ¡pero cuidado, no lo dejes explotar antes de tiempo!</p>
+<div class="notice"><strong>Promoción de octubre:</strong> los premios principales son canjeables únicamente en viajes realizados durante octubre, sujetos a las condiciones y disponibilidad del organizador.</div>
+<label for="phone">Número de teléfono (10 dígitos)</label><input id="phone" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="10" placeholder="Ej. 6641234567">
+<p class="hint">Se permite una participación por número en este navegador.</p><p id="phoneError" class="feedback" role="alert"></p>
+<button class="primary" id="startBtn">¡Vamos a jugar!</button>
+</section>
+<section id="game" class="panel center hidden">
+<div class="steps"><span class="step active">1. Infla</span><span class="step">2. Revienta</span><span class="step">3. Descubre</span></div>
+<h2 id="gameTitle">¡Infla el globo!</h2><p id="gameText">Toca “Inflar” varias veces. Cada toque lo hará más grande. ¡No te distraigas!</p>
+<div class="game-area">
+<div id="balloonWrap" class="balloon-wrap"><div id="balloon" class="balloon" style="--scale:1"><span class="balloon-face">☺</span></div><div class="balloon-string"></div></div>
+<div id="popText" class="pop hidden">¡POP! 🎉</div>
+</div>
+<div class="meter" aria-label="Tamaño del globo"><div id="meterFill" class="meter-fill"></div></div>
+<p id="meterText" class="hint">Globo al 0 %</p>
+<button class="primary game-btn" id="inflateBtn">🎈 Inflar globo</button>
+<button class="secondary game-btn hidden" id="revealBtn">✨ Descubrir mi premio</button>
+<p id="gameFeedback" class="feedback" role="status" aria-live="polite"></p>
+</section>
+<section id="result" class="panel center hidden">
+<img class="brand-small" src="logo-paseando-por-la-baja.jpg" alt="Paseando por la Baja">
+<div id="prizeIcon" class="prize-icon" aria-hidden="true">🎁</div><p>¡Este es tu resultado!</p><div id="prizeName" class="prize-name"></div><p id="prizeMessage"></p>
+<p><strong>Folio de participación</strong></p><div id="prizeCode" class="code"></div>
+<p class="fine">Guarda una captura y presenta tu folio junto con el teléfono registrado. El folio de esta demostración no se valida en un servidor.</p>
+<button id="copyBtn" class="primary">Copiar folio</button> <button id="finishBtn" class="secondary">Terminar</button><p id="copyFeedback" class="feedback" role="status" aria-live="polite"></p>
+</section>
+<section class="panel"><h2>🎁 Premios</h2><p>🍷 Botella de vino · 🚤 Paseo en barco · 🍽️ Comida · 🥖 Pan artesanal · 🏷️ Descuento del 15 %.</p><p><strong>Premio de consolación:</strong> llavero de Berry el berrendo 🦌.</p><p class="fine">Los premios principales solo son canjeables en viajes de octubre. Define en las bases las fechas exactas, disponibilidad y condiciones. Para el premio de vino, verifica edad legal y normativa aplicable; no dirijas esa opción a menores.</p></section>
+<section class="panel"><h2>Control de participaciones</h2><p class="fine">Esta versión bloquea un teléfono repetido en el mismo navegador mediante almacenamiento local. No impide borrar datos, cambiar de dispositivo o modificar el código. El porcentaje del 20 % se calcula en el navegador y no es un sorteo verificable. Para controlar duplicados entre dispositivos y validar folios de forma segura, hace falta un backend y una base de datos compartida.</p></section>
+</main><footer class="foot">Paseando por la Baja · ¡Mucha suerte! 🎈</footer></div>
+<script>
+const $=id=>document.getElementById(id),KEY="pdlb_inflaygana_v1";
+let phone="",size=0,finished=false,folio="";
+const mainPrizes=[
+{name:"Botella de vino",icon:"🍷",msg:"Premio sujeto a edad legal, disponibilidad y condiciones de canje."},
+{name:"Paseo en barco",icon:"🚤",msg:"Coordina fecha y cupo con Paseando por la Baja."},
+{name:"Comida",icon:"🍽️",msg:"Consulta lugar y condiciones de canje."},
+{name:"Pan artesanal",icon:"🥖",msg:"Consulta dónde y cuándo recoger tu premio."},
+{name:"Descuento del 15 %",icon:"🏷️",msg:"Consulta los servicios aplicables y las condiciones del descuento."}
+];
+function show(id){["welcome","game","result"].forEach(x=>$(x).classList.toggle("hidden",x!==id));}
+$("phone").addEventListener("input",e=>{e.target.value=e.target.value.replace(/\D/g,"").slice(0,10);$("phoneError").textContent="";});
+$("startBtn").onclick=()=>{phone=$("phone").value.trim();if(!/^\d{10}$/.test(phone)){$("phoneError").textContent="Ingresa exactamente 10 dígitos.";return}
+ let used={};try{used=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+ if(used[phone]){$("phoneError").textContent="Este teléfono ya participó en este navegador.";return}
+ size=0;finished=false;$("balloon").classList.remove("hidden");$("balloonWrap").classList.remove("hidden");$("popText").classList.add("hidden");$("inflateBtn").classList.remove("hidden");$("inflateBtn").disabled=false;$("revealBtn").classList.add("hidden");$("gameFeedback").textContent="";updateBalloon();show("game");};
+function updateBalloon(){const scale=1+size/100*1.55;$("balloon").style.setProperty("--scale",scale);$("meterFill").style.width=size+"%";$("meterText").textContent="Globo al "+size+" %";}
+$("inflateBtn").onclick=()=>{if(finished)return;size=Math.min(100,size+10+Math.floor(Math.random()*9));if(size>=100){size=100;finished=true;$("balloonWrap").classList.add("hidden");$("popText").classList.remove("hidden");$("gameTitle").textContent="¡El globo explotó!";$("gameText").textContent="¡Qué emoción! Ya puedes descubrir qué te tocó.";$("inflateBtn").classList.add("hidden");$("revealBtn").classList.remove("hidden");$("gameFeedback").textContent="¡POP! Pulsa para revelar tu resultado."; }else{$("gameFeedback").textContent=["¡Sigue inflando!","¡Va creciendo!","¿Podrá aguantar?"][Math.floor(Math.random()*3)];}updateBalloon();};
+$("revealBtn").onclick=()=>{if(!finished)return;let win=Math.random()<.20;let prize=win?mainPrizes[Math.floor(Math.random()*mainPrizes.length)]:{name:"Llavero de Berry el berrendo",icon:"🦌",msg:"¡Gracias por jugar! Tu premio de consolación es un llavero de Berry el berrendo. Consulta cómo recogerlo."};
+ let used={};try{used=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}folio="PBL-"+Date.now().toString(36).toUpperCase()+"-"+randomCode();used[phone]={folio,date:new Date().toISOString(),result:prize.name};try{localStorage.setItem(KEY,JSON.stringify(used))}catch(e){}
+ $("prizeIcon").textContent=prize.icon;$("prizeName").textContent=prize.name;$("prizeMessage").textContent=prize.msg+(win?" Los premios principales son canjeables solo en viajes realizados durante octubre.":"");$("prizeCode").textContent=folio;show("result");};
+function randomCode(){if(crypto&&crypto.getRandomValues){let a=new Uint32Array(1);crypto.getRandomValues(a);return a[0].toString(36).toUpperCase().slice(0,7)}return Math.random().toString(36).slice(2,9).toUpperCase()}
+$("copyBtn").onclick=async()=>{try{await navigator.clipboard.writeText(folio);$("copyFeedback").textContent="Folio copiado."}catch(e){$("copyFeedback").textContent="Copia manualmente el folio que aparece arriba."}};
+$("finishBtn").onclick=()=>{phone="";$("phone").value="";$("phoneError").textContent="";show("welcome");};
+</script></body></html>
